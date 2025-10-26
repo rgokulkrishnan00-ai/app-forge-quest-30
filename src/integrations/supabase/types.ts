@@ -14,16 +14,160 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      employer_profiles: {
+        Row: {
+          business_type: string | null
+          company_description: string | null
+          company_name: string | null
+          created_at: string | null
+          id: string
+          rating: number | null
+          total_hires: number | null
+          updated_at: string | null
+          user_id: string
+          verification_status: string | null
+        }
+        Insert: {
+          business_type?: string | null
+          company_description?: string | null
+          company_name?: string | null
+          created_at?: string | null
+          id?: string
+          rating?: number | null
+          total_hires?: number | null
+          updated_at?: string | null
+          user_id: string
+          verification_status?: string | null
+        }
+        Update: {
+          business_type?: string | null
+          company_description?: string | null
+          company_name?: string | null
+          created_at?: string | null
+          id?: string
+          rating?: number | null
+          total_hires?: number | null
+          updated_at?: string | null
+          user_id?: string
+          verification_status?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          created_at: string | null
+          email: string
+          full_name: string | null
+          id: string
+          location: string | null
+          phone: string | null
+          updated_at: string | null
+          user_type: Database["public"]["Enums"]["user_type"]
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string | null
+          email: string
+          full_name?: string | null
+          id: string
+          location?: string | null
+          phone?: string | null
+          updated_at?: string | null
+          user_type: Database["public"]["Enums"]["user_type"]
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string | null
+          email?: string
+          full_name?: string | null
+          id?: string
+          location?: string | null
+          phone?: string | null
+          updated_at?: string | null
+          user_type?: Database["public"]["Enums"]["user_type"]
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      worker_profiles: {
+        Row: {
+          availability: string[] | null
+          certifications: string[] | null
+          created_at: string | null
+          experience_level: string | null
+          hourly_rate: number | null
+          id: string
+          rating: number | null
+          skills: string[] | null
+          total_jobs: number | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          availability?: string[] | null
+          certifications?: string[] | null
+          created_at?: string | null
+          experience_level?: string | null
+          hourly_rate?: number | null
+          id?: string
+          rating?: number | null
+          skills?: string[] | null
+          total_jobs?: number | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          availability?: string[] | null
+          certifications?: string[] | null
+          created_at?: string | null
+          experience_level?: string | null
+          hourly_rate?: number | null
+          id?: string
+          rating?: number | null
+          skills?: string[] | null
+          total_jobs?: number | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
+      user_type: "worker" | "employer"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +294,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+      user_type: ["worker", "employer"],
+    },
   },
 } as const
