@@ -1,13 +1,14 @@
 import { Home, Search, MessageSquare, FileText, User } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { ROUTES } from "@/utils/constants";
 
 const navItems = [
-  { icon: Home, label: "Home", path: "/" },
-  { icon: Search, label: "Search", path: "/search" },
-  { icon: MessageSquare, label: "Messages", path: "/messages" },
-  { icon: FileText, label: "Applications", path: "/applications" },
-  { icon: User, label: "Profile", path: "/profile" },
+  { icon: Home, label: "Home", path: ROUTES.HOME },
+  { icon: Search, label: "Search", path: ROUTES.SEARCH },
+  { icon: MessageSquare, label: "Messages", path: ROUTES.MESSAGES },
+  { icon: FileText, label: "Applications", path: ROUTES.APPLICATIONS },
+  { icon: User, label: "Profile", path: ROUTES.PROFILE },
 ];
 
 export const BottomNav = () => {

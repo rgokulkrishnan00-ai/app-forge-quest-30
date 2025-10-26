@@ -2,17 +2,31 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
 import { Layout } from "./components/layout/Layout";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 import Index from "./pages/Index";
+import Welcome from "./pages/Welcome";
+import Register from "./pages/Register";
+import WorkerRegister from "./pages/WorkerRegister";
+import EmployerRegister from "./pages/EmployerRegister";
+import Login from "./pages/Login";
 import Search from "./pages/Search";
 import Messages from "./pages/Messages";
 import Applications from "./pages/Applications";
 import Profile from "./pages/Profile";
+import ProfileEdit from "./pages/ProfileEdit";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import { useAuth } from "./hooks/useAuth";
 
 const queryClient = new QueryClient();
+
+const PublicRoute = ({ children }: { children: React.ReactNode }) => {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? <Navigate to="/" replace /> : <>{children}</>;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -21,16 +35,27 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AuthProvider>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/messages" element={<Messages />} />
-              <Route path="/applications" element={<Applications />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Layout>
+          <Routes>
+            {/* Public routes */}
+            <Route path="/welcome" element={<PublicRoute><Welcome /></PublicRoute>} />
+            <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+            <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
+            <Route path="/register/worker" element={<PublicRoute><WorkerRegister /></PublicRoute>} />
+            <Route path="/register/employer" element={<PublicRoute><EmployerRegister /></PublicRoute>} />
+            
+            {/* Protected routes with Layout */}
+            <Route element={<Layout><ProtectedRoute><div /></ProtectedRoute></Layout>}>
+              <Route path="/" element={<ProtectedRoute><Index /></ProtectedRoute>} />
+              <Route path="/search" element={<ProtectedRoute><Search /></ProtectedRoute>} />
+              <Route path="/messages" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
+              <Route path="/applications" element={<ProtectedRoute><Applications /></ProtectedRoute>} />
+              <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+              <Route path="/profile/edit" element={<ProtectedRoute><ProfileEdit /></ProtectedRoute>} />
+              <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+            </Route>
+            
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>

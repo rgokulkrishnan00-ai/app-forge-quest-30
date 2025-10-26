@@ -8,6 +8,7 @@ export const ROUTES = {
   REGISTER: '/register',
   WORKER_REGISTER: '/register/worker',
   EMPLOYER_REGISTER: '/register/employer',
+  SETTINGS: '/settings',
 } as const;
 
 export const USER_TYPES = {
