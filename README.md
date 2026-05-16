@@ -1,73 +1,92 @@
-# Welcome to your Lovable project
+# App Forge Quest
 
-## Project info
+> Build faster. Ship smarter. Automate everything.
 
-**URL**: https://lovable.dev/projects/6bfc6225-d99d-4e83-91ad-485918bca604
+An open-source AI-powered application scaffolding platform built for 
+developers, founders, and builders who move fast.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## What This Project Does
 
-**Use Lovable**
+App Forge Quest is a production-ready front-end foundation for building 
+AI-integrated web applications — designed for rapid prototyping, 
+automation workflows, and scalable deployment.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6bfc6225-d99d-4e83-91ad-485918bca604) and start prompting.
+Built by a builder. For builders.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## Why This Exists
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Most boilerplates are generic. This one is built with a specific mindset:
+- AI-first architecture
+- Automation-ready structure
+- Clean, scalable codebase from day one
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+| Layer | Technology |
+|---|---|
+| Frontend | React + TypeScript |
+| Build Tool | Vite |
+| Styling | Tailwind CSS + shadcn-ui |
+| Backend | Supabase |
+| Automation | n8n compatible workflows |
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Getting Started
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/rgokulkrishnan00-ai/app-forge-quest-30
+cd app-forge-quest-30
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Who Is Building This
 
-**Use GitHub Codespaces**
+18-year-old CS student, entrepreneur, and AI automation builder based 
+in India.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Currently building:
+- AI Voice Receptionist systems for clinics
+- Workflow automation using n8n
+- AI-powered document generation pipelines
+- Research tools for stock market analysis
 
-## What technologies are used for this project?
+Parallel tracks: gym, university, startups, financial markets.
 
-This project is built with:
+Not waiting for permission.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## Open Source Philosophy
 
-Simply open [Lovable](https://lovable.dev/projects/6bfc6225-d99d-4e83-91ad-485918bca604) and click on Share -> Publish.
+This project is open source because good tools should be accessible.
+If it helps you build something — use it, fork it, improve it.
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## Contributing
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. Fork the repo
+2. Create your branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m 'Add feature'`
+4. Push: `git push origin feature/your-feature`
+5. Open a Pull Request
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+
+## Connect
+
+GitHub: [@rgokulkrishnan00-ai](https://github.com/rgokulkrishnan00-ai)
+
+---
+
+*Building in public. Shipping fast. No excuses.*
